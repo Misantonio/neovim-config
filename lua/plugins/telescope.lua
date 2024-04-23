@@ -5,6 +5,21 @@ return {
         local builtin = require("telescope.builtin")
         local telescope = require("telescope")
         telescope.setup({
+            defaults = {
+                file_ignore_patterns = {
+                    "node_modules",
+                    ".git",
+                    ".cache",
+                    ".vscode",
+                    ".idea",
+                    ".DS_Store",
+                    ".ipynb_checkpoints",
+                    ".pytest_cache",
+                    ".mypy_cache",
+                    ".tox",
+                    ".venv",
+                }
+            },
             pickers={
                 find_files = {
                     hidden = true
