@@ -21,12 +21,14 @@ return {
         config = function()
             local lspconfig = require("lspconfig")
             lspconfig.pyright.setup({
-                cmd = { "pyright-langserver", "--stdio" },
-                filetypes = { "python" },
-                root_dir = require("lspconfig.util").root_pattern(".git", vim.fn.getcwd()),
+                filetypes = { "python", "py" },
                 settings = {
+                    pyright = {
+                        autoImportCompletions = true,
+                    },
                     python = {
                         analysis = {
+                            typeCheckingMode = "basic",
                             autoSearchPaths = true,
                             useLibraryCodeForTypes = true,
                         },
@@ -39,4 +41,5 @@ return {
         end
     },
 }
+
 
